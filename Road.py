@@ -3,10 +3,11 @@ from __future__ import annotations
 
 class Road:
 
-    def __init__(self, speed_limit: int, intersections: list[Intersection]):
+    def __init__(self, speed_limit: int, intersections: list[Intersection], length:float):
         self.speed_limit = speed_limit  # The base speed limit set at construction time
         self.intersections = intersections  # List of intersections this road connects
         self.traffic_count = 0  # Track the number of cars using this road
+        self.length = length
 
     def get_speed(self) -> float:
         # Adjust the speed limit based on traffic count
@@ -26,3 +27,8 @@ class Road:
     def decrement_traffic(self):
         if self.traffic_count > 0:
             self.traffic_count -= 1
+    
+    def get_cost(self) -> float:
+        base_cost = 1.0  # Assume a base cost per kilometer
+        traffic_cost = 0.5 * self.traffic_count  # Extra cost per car
+        return self.length * base_cost + traffic_cost
