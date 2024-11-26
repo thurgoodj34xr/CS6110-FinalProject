@@ -216,7 +216,8 @@ class Map:
                 intersection1.label, 
                 intersection2.label, 
                 length=road.length, 
-                speed_limit=road.speed_limit
+                speed_limit=road.speed_limit,
+                carsCount = road.traffic_count
             )
 
         # Draw the graph
@@ -229,7 +230,7 @@ class Map:
         # Labels for road attributes (edges)
         edge_labels = {}
         for u, v, data in G.edges(data=True):
-            edge_labels[(u, v)] = f"Len: {data['length']}m, Speed: {data['speed_limit']} km/h"
+            edge_labels[(u, v)] = f"Len: {data['length']}m, Speed: {data['speed_limit']} km/h, Cars: {data['carsCount']}"
 
         nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels)
 

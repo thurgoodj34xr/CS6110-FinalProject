@@ -15,3 +15,9 @@ class Intersection:
 
     def __str__(self):
         return f"Intersection({self.label})"
+    
+    def __lt__(self, other):
+        # Implement comparison logic. For simplicity, we compare by label here.
+        if not isinstance(other, Intersection):
+            return NotImplemented
+        return self.label < other.label
