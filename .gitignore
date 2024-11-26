@@ -15,6 +15,7 @@ downloads/
 eggs/
 .eggs/
 .vscode/
+myenv/
 lib/
 lib64/
 parts/

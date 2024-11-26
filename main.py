@@ -1,8 +1,12 @@
 from __future__ import annotations
 from Map import Map
 
+
+
+
 if __name__ == "__main__":
     my_map = Map()
+    my_map.draw()
 
     start = my_map.intersections[0]
     end = my_map.intersections[-1]
@@ -18,3 +22,4 @@ if __name__ == "__main__":
 
     highest_speed_path = my_map.find_highest_speed_limit_path(start, end)
     print("Path with Highest Speed Limit:", highest_speed_path)
+    my_map.draw_path(path=highest_speed_path)
